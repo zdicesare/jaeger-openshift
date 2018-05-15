@@ -68,7 +68,6 @@ objects:
         - image: jaegertracing/jaeger-collector:${IMAGE_VERSION}
           name: ${JAEGER_SERVICE_NAME}-collector
           command:
-            - "/go/bin/collector-linux"
             - "--config-file=/conf/collector.yaml"
           ports:
           - containerPort: 14267
@@ -154,7 +153,6 @@ objects:
         - image: jaegertracing/jaeger-query:${IMAGE_VERSION}
           name: jaeger-query
           command:
-            - "/go/bin/query-linux"
             - "--config-file=/conf/query.yaml"
           ports:
           - containerPort: 16686
