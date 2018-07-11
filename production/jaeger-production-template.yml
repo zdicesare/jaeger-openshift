@@ -67,8 +67,7 @@ objects:
         containers:
         - image: jaegertracing/jaeger-collector:${IMAGE_VERSION}
           name: ${JAEGER_SERVICE_NAME}-collector
-          command:
-            - "--config-file=/conf/collector.yaml"
+          args: ["--config-file=/conf/collector.yaml"]
           ports:
           - containerPort: 14267
             protocol: TCP
@@ -152,8 +151,7 @@ objects:
         containers:
         - image: jaegertracing/jaeger-query:${IMAGE_VERSION}
           name: jaeger-query
-          command:
-            - "--config-file=/conf/query.yaml"
+          args: ["--config-file=/conf/query.yaml"]
           ports:
           - containerPort: 16686
             protocol: TCP
